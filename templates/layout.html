@@ -12,9 +12,9 @@
       rel="stylesheet" href="/static/css/main.css"
     />
     {% if title %}
-    <title>30 Days of Python - {{ title}}</title>
+    <title>Text & Student API - {{ title}}</title>
     {% else %}
-    <title>30 Days of Python</title>
+    <title>Text & Student API</title>
     {% endif %}
   </head>
 
@@ -22,7 +22,7 @@
     <header>
       <div class="menu-container">
         <div>
-          <a class="brand-name nav-link" href="/">30DaysOfPython</a>
+          <a class="brand-name nav-link" href="/">Text&StudentAPI</a>
         </div>
         <!-- Replace Flask's url_for() with the actual path strings (/, /about, /post) -->
         <ul class="nav-lists">
@@ -30,7 +30,8 @@
           <li class="nav-list"><a class="nav-link active" href="/about">About</a></li>
           <li class="nav-list"><a class="nav-link active" href="/post">Text Analyzer</a></li>
           <li class="nav-list"><a class="nav-link active" href="/students">Add Student</a></li>
-          <li class="nav-list"><a class="nav-link active" href="/api/students">API</a></li>
+          <!-- target="_blank" tells the browser to open in new tab-->
+          <li class="nav-list"><a class="nav-link active" href="/api/students" target="_blank" rel="noopener">API</a></li>
         </ul>
       </div>
     </header>

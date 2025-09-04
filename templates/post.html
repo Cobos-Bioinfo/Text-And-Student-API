@@ -1,13 +1,28 @@
 {% extends 'layout.html' %}
+
 {% block content %}
-<div class="container">
-  <h1>Text Analyzer</h1>
+<div class="form-container">
+  <h2>Text Analyzer</h2>
+
   <form action="/post" method="POST">
-    <div>
-      <textarea rows="25" name="content" autofocus></textarea>
+    <div class="form-group">
+      <label for="content">Enter Text to Analyze</label>
+      <textarea 
+      id="content"
+      name="content"
+      rows="8" 
+      placeholder="Write or Copy Text to analyze ..."
+      autofocus
+      ></textarea>
     </div>
-    <div>
-      <input type="submit" class="btn" value="Process Text" />
+
+
+    <!-- Two buttons side by side -->
+    <div class="button-group">
+      <button type="submit" class="btn-primary">Process Text</button>
+      <button type="button" class="btn-clear" onclick="document.getElementById('content').value = ''">
+        Clear Text
+      </button>
     </div>
   </form>
 </div>

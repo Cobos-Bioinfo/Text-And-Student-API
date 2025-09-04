@@ -53,7 +53,7 @@ def home(request: Request):
         "Front end": ["HTML", "CSS"],
         "Back end": ["Python", "FastAPI"]
     }
-    name = "30 Days of Python Programming"
+    name = "Text & Student API"
     
     # Get message from URL query params (for Add Student section)
     message = request.query_params.get("message", "")
@@ -72,7 +72,7 @@ def home(request: Request):
 
 @app.get("/about", response_class=HTMLResponse)
 def about(request: Request):
-    name = "30 Days of Python Programming"
+    name = "Text & Student API"
     return templates.TemplateResponse(
         "about.html",
         {

@@ -1,188 +1,326 @@
-/* === GENERAL === */
-
+/* ========================================
+   === GENERAL RESET & BASE STYLES ===
+   - Reset default browser styles
+   - Set global font and layout
+   ======================================== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* === css variables === */
+/* ========================================
+   === CSS VARIABLES (Theme Colors) ===
+   - Define colors once for reuse
+   ======================================== */
 :root {
-    --header-bg-color: #4a7799;
-    --textarea-bg-color: rgb(250, 246, 246);
-    --body-bg-color: rgb(210, 214, 210);
-    --nav-link-color: #bbb;
+    --header-bg-color: #4a7799;              /* Blue header */
+    --textarea-bg-color: #faf6f6;            /* Light gray for focused inputs */
+    --body-bg-color: #e7e7e7;                /* Light background (#d2d6d6) */
+    --nav-link-color: #FFFFFF;                  /* Light gray for nav links */
+    --text-dark: #333;                       /* Dark text */
+    --text-gray: #444;                       /* Softer than black */
+    --border-color: #ccc;                    /* Input borders */
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.05); /* Soft shadows */
 }
 
-/* === body style === */
+/* ========================================
+   === BODY & TYPOGRAPHY ===
+   - Global font, spacing, and background
+   ======================================== */
 body {
+    font-size: 18px;
     background: var(--body-bg-color);
     margin: auto;
+    max-width: 1200px;
     line-height: 1.75;
-    font-weight: 900;
-    word-spacing: 1.5px;
-    font-family: 'Lato',sans-serif;
     font-weight: 300;
+    word-spacing: 1.5px;
+    font-family: 'Lato', sans-serif;
+    color: var(--text-gray);
 }
 
-/* === header style === */
+/* ========================================
+   === HEADINGS ===
+   - Clean spacing and font
+   ======================================== */
+h1, h2, h3 {
+    margin: 20px 0;
+    font-weight: 300;
+    font-family: 'Nunito', sans-serif;
+}
+
+/* ========================================
+   === HEADER & NAVIGATION ===
+   - Styling for top menu
+   ======================================== */
 header {
     background: var(--header-bg-color);
 }
-/* === title and subtitle style === */
-h1,
-h2 {
-    margin: 20px;
-    font-weight: 300;
-    font-family: Nunito;
-}
-
-/* === header menu style === */
 
 .menu-container {
     width: 90%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    color: rgb(221, 215, 215);
+    color: #ddd;
     padding: 25px;
 }
 
 .nav-lists {
     display: flex;
-}
-
-.nav-list {
     list-style: none;
-    margin: 0 5px;
+    gap: 15px;
 }
 
 .nav-link {
     text-decoration: none;
     font-size: 22px;
-    padding: 0 5px;
     color: var(--nav-link-color);
     font-weight: 400;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: white;
 }
 
 .brand-name {
     font-size: 28px;
     font-weight: bolder;
-}
-/* === paragraph text style === */
-p {
-    font-size: 22px;
-    font-weight: 300;
+    color: white;
 }
 
-/* === main style === */
+/* ========================================
+   === MAIN CONTENT LAYOUT ===
+   - Center content and set width
+   ======================================== */
 main {
     width: 90%;
     margin: auto;
+    padding: 20px 0;
 }
 
-/* === container div inside main style === */
-
+/* ========================================
+   === CONTAINERS (Reusable Blocks) ===
+   - .container: general gray container
+   - .form-container: clean white box for forms
+   ======================================== */
 .container {
-    background: rgb(210, 214, 210);
+    background: var(--body-bg-color);
     padding: 20px;
-    margin: auto;
+    margin: 20px auto;
+    border-radius: 6px;
 }
 
-/* === updated techs style === */
-/* Front/Back end */
-.tech-section h3 {
-    margin: 10px 0 1px 0; /* top right bottom left */
-    font-family: 'Nunito', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    color: #444;
+.form-container {
+    max-width: 600px;
+    margin: 30px auto;
+    padding: 25px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: var(--shadow);
 }
 
-/* Technologies */
+.form-container h2 {
+    font-size: 24px;
+    color: var(--text-dark);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* ========================================
+   === TECHNOLOGY LIST STYLING ===
+   - For home page: Frontend / Backend list
+   ======================================== */
 .tech-sections {
-    margin: 0px 0;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    font-size: 20px;
-    color: #444; /* 444 */
+    margin: 20px 0;
+    font-size: 18px;
     line-height: 1.75;
 }
 
-.tech-section {
-    margin-bottom: 16px;
+.tech-section h3 {
+    margin: 10px 0 6px 0;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: var(--text-gray);
 }
-
-
 
 .tech-lists {
     margin: 8px 0;
     padding-left: 20px;
     list-style: none;
     font-size: 20px;
-    color: #444;
+    color: var(--text-gray);
 }
 
 .tech-lists li {
     margin: 6px 0;
 }
-/* === button style === */
-.btn {
-    width: 150px;
-    height: 50px;
-    background: var(--header-bg-color);
-    color: var(--nav-link-color);
-    font-size: 20px;
-    margin: 5px;
-    border: 1px solid var(--header-bg-color);
-    font-family: Lato;
-    cursor: pointer;
+
+/* ========================================
+   === FORM STYLING ===
+   - Reusable styles for all forms
+   - Labels, inputs, textareas
+   ======================================== */
+.form-group {
+    margin-bottom: 16px;
 }
 
-.btn:focus {
-    outline: 2px solid #2a70a5;
-    cursor: pointer;
+.form-group label {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 6px;
 }
-/* === textarea style === */
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: var(--text-gray);
+    background: white;
+    outline: none;
+    transition: border 0.3s ease, background 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border: 1px solid var(--header-bg-color);
+    background: var(--textarea-bg-color);
+}
+
+.form-group small {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+    display: block;
+}
+
+/* ========================================
+   === TEXTAREA (Text Analyzer) ===
+   - Full width on mobile, clean style
+   ======================================== */
 textarea {
-    width: 65%;
-    margin: auto;
+    width: 100%;           /* Full width by default */
+    max-width: 100%;
+    min-height: 120px;
+    resize: vertical;
     padding: 10px 15px;
     outline: 2px solid rgba(207, 203, 203, 0.25);
     border: none;
     font-size: 18px;
-    font-family: Lato;
+    font-family: 'Lato', sans-serif;
     font-weight: 300;
 }
 
 textarea:focus {
-    border: none;
     outline: 2px solid rgba(74, 119, 153, 0.45);
     background: var(--textarea-bg-color);
-    font-size: 18px;
     caret-color: var(--header-bg-color);
-    font-family: Lato;
-    font-weight: 300;
-
 }
 
-/* === responsiveness === */
-@media (max-width:600px) {
+/* ========================================
+   === BUTTON STYLING ===
+   - One consistent button style
+   - .btn-primary used everywhere
+   ======================================== */
+.btn-primary {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    background: var(--header-bg-color);
+    color: white !important;   /* Override any gray */
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    border: none;
+    border-radius: 8px;       /* Nice rounded corners */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 0 1px 0;
+    text-align: center;
+}
 
+.btn-primary:hover {
+    background: #2a70a5;       /* Darker blue on hover */
+    box-shadow: 0 4px 12px rgba(42, 112, 165, 0.25);
+    transform: translateY(-1px);
+}
+
+.btn-primary:focus {
+    outline: 2px solid #2a70a5;
+    outline-offset: 2px;
+}
+
+/* === button group: two buttons side by side === */
+.button-group { display: flex; gap: 10px; }
+
+.button-group > * {
+  flex: 1 1 0;
+  width: auto !important;   /* cancel .btn-primary's width:100% */
+  margin: 0;                /* avoid extra height from margins */
+  padding: 12px 20px;       /* same padding */
+  display: flex;            /* center content */
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;      /* prevent wrapping that makes one taller */
+}
+
+.button-group button {
+    flex: 1;
+    padding: 12px 10px;
+    font-size: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-clear {
+    background: #d9534f;
+    color: white !important;
+}
+
+.btn-clear:hover {
+    background: #c9302c;
+    box-shadow: 0 4px 12px rgba(137, 60, 60, 0.25);
+    transform: translateY(-1px);
+}
+
+.btn-clear:focus {
+    outline: 2px solid #c9302c;
+    outline-offset: 2px;
+}
+
+/* ========================================
+   === RESPONSIVENESS ===
+   - Mobile-friendly layout
+   ======================================== */
+@media (max-width: 600px) {
     .menu-container {
         flex-direction: column;
-        justify-content: space-between;
-    }
-    h1{
-        font-size: 22px;
+        gap: 10px;
     }
 
     .nav-lists {
         flex-direction: column;
+        text-align: center;
+    }
+
+    h1, h2 {
+        font-size: 22px;
     }
 
     textarea {
         width: 100%;
     }
 
+    .form-container {
+        width: 95%;
+        padding: 20px;
+    }
 }
