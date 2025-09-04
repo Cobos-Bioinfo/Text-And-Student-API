@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400|Nunito:300,400|Raleway:300,400,500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- With FastAPI templates we can pass a static URL manually -->
+    <link
+      rel="stylesheet" href="/static/css/main.css"
+    />
+    {% if title %}
+    <title>30 Days of Python - {{ title}}</title>
+    {% else %}
+    <title>30 Days of Python</title>
+    {% endif %}
+  </head>
+
+  <body>
+    <header>
+      <div class="menu-container">
+        <div>
+          <a class="brand-name nav-link" href="/">30DaysOfPython</a>
+        </div>
+        <!-- Replace Flask's url_for() with the actual path strings (/, /about, /post) -->
+        <ul class="nav-lists">
+          <li class="nav-list"><a class="nav-link active" href="/">Home</a></li>
+          <li class="nav-list"><a class="nav-link active" href="/about">About</a></li>
+          <li class="nav-list"><a class="nav-link active" href="/post">Text Analyzer</a></li>
+          <li class="nav-list"><a class="nav-link active" href="/students">Add Student</a></li>
+          <li class="nav-list"><a class="nav-link active" href="/api/students">API</a></li>
+        </ul>
+      </div>
+    </header>
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+  </body>
+</html>

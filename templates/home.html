@@ -1,0 +1,41 @@
+{% extends 'layout.html' %} {% block content %}
+<div class="container">
+  <h1>Welcome to {{name}}</h1>
+  <p>
+    This application clean texts and analyses the number of words, characters and
+    most frequent words in the text. Check it out by click text analyzer at the
+    menu. <br> <br>
+    You need the following technologies to build this web application:
+  </p>
+
+
+  <div class="tech-sections">
+    {% set ns = namespace(front_num=1, back_num=2) %}
+
+    {% for section, items in techs.items() %}
+      <div class="tech-section">
+        <!-- Section title -->
+         <h3><strong>{{ loop.index }}. {{ section }}</strong></h3>
+         <ul class="tech.lists">
+          {% for tech in items %}
+            <li class ="tech">{{ tech }}</li>
+          {% endfor %}
+         </ul>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+<!-- Show success message -->
+{% if message %}
+  <div class="alert alert-success">
+    {{ message }}
+  </div>
+
+  <a href="/students">Add a Student</a> |
+  <a href="/students/list">View All Students</a>
+{% endif %}
+
+
+{% endblock %}
