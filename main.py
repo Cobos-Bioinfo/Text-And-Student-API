@@ -1,11 +1,4 @@
-# Day 29 - 30DaysOfPython Challenge
-# Building API
-# Check README for more info about this Day 29
-
-"""
-Run the server with:
-fastapi dev main.py
-"""
+# Text & Students API
 
 from fastapi import FastAPI, Request, Form
 from fastapi.responses import HTMLResponse, RedirectResponse
