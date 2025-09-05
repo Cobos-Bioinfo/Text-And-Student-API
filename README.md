@@ -50,6 +50,7 @@ TextAndStudentAPI/
 │   ├── about.html
 │   ├── post.html             # Text Analyzer form
 │   ├── result.html           # Analysis results
+│   ├── students.html
 │   └── add_student.html      # Add Student form
 ├── requirements.txt
 └── README.md
