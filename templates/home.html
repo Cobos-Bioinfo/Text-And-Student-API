@@ -2,9 +2,9 @@
 <div class="container">
   <h1>Welcome to {{name}}</h1>
   <p>
-    This application cleans text and analyzes the number of words, characters and
-    most frequent words in the text. Check it out by clicking on Text Analyzer at the
-    menu. <br> <br>
+    This application analyzes text. It counts characters, words, sentences and identifies the most frequent word. Try it by clicking <strong>Text Analyzer</strong> in the header.<br>
+    
+    It also lets you add and view student records through a clean web interface, with data available via a JSON API.<br><br>
     The following technologies were used to build this web application:
   </p>
 
@@ -25,17 +25,4 @@
     {% endfor %}
   </div>
 </div>
-
-
-<!-- Show success message -->
-{% if message %}
-  <div class="alert alert-success">
-    {{ message }}
-  </div>
-
-  <a href="/students">Add a Student</a> |
-  <a href="/students/list">View All Students</a>
-{% endif %}
-
-
 {% endblock %}

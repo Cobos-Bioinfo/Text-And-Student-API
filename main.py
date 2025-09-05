@@ -44,7 +44,7 @@ templates = Jinja2Templates(directory="templates")
 def home(request: Request):
     techs = {
         "Front end": ["HTML", "CSS"],
-        "Back end": ["Python", "FastAPI"]
+        "Back end": ["Python", "FastAPI", "Pydantic", "Uvicorn"]
     }
     name = "Text & Student API"
     
@@ -179,6 +179,21 @@ def add_student_form(
     
     # Redirect to home page with success message
     return RedirectResponse(
-        url="/?message=" + f"🎉+Success!+{name}+has+been+added.".replace(" ", "+"),
+        url=f"/students/list?message={name}+has+been+added.".replace(" ", "+"),
         status_code=303  # 303 = Redirect after POST
+    )
+
+
+# ----------------------
+# Add Student List
+# ----------------------
+@app.get("/students/list", response_class=HTMLResponse)
+def list_students(request: Request):
+    return templates.TemplateResponse(
+        "students.html",
+        {
+            "request": request,
+            "students": students,
+            "title": "Students"
+        }
     )

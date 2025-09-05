@@ -159,49 +159,6 @@ main {
     margin: 6px 0;
 }
 
-/* ========================================
-   === FORM STYLING ===
-   - Reusable styles for all forms
-   - Labels, inputs, textareas
-   ======================================== */
-.form-group {
-    margin-bottom: 16px;
-}
-
-.form-group label {
-    display: block;
-    font-family: 'Nunito', sans-serif;
-    font-size: 18px;
-    color: var(--text-dark);
-    margin-bottom: 6px;
-}
-
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    font-family: 'Lato', sans-serif;
-    font-size: 18px;
-    color: var(--text-gray);
-    background: white;
-    outline: none;
-    transition: border 0.3s ease, background 0.3s ease;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border: 1px solid var(--header-bg-color);
-    background: var(--textarea-bg-color);
-}
-
-.form-group small {
-    font-size: 14px;
-    color: #666;
-    margin-top: 4px;
-    display: block;
-}
 
 /* ========================================
    === TEXTAREA (Text Analyzer) ===
@@ -225,6 +182,7 @@ textarea:focus {
     background: var(--textarea-bg-color);
     caret-color: var(--header-bg-color);
 }
+
 
 /* ========================================
    === BUTTON STYLING ===
@@ -294,6 +252,101 @@ textarea:focus {
 .btn-clear:focus {
     outline: 2px solid #c9302c;
     outline-offset: 2px;
+}
+
+/* Remove underline from any button-styled link */
+.btn[href],
+.btn[href]:link,
+.btn[href]:visited,
+.btn-primary[href],
+.btn-primary[href]:link,
+.btn-primary[href]:visited {
+    text-decoration: none !important;
+}
+
+
+
+/* ========================================
+   === FORM STYLING ===
+   - Reusable styles for all forms
+   - Labels, inputs, textareas
+   ======================================== */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-family: 'Nunito', sans-serif;
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+    color: var(--text-gray);
+    background: white;
+    outline: none;
+    transition: border 0.3s ease, background 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border: 1px solid var(--header-bg-color);
+    background: var(--textarea-bg-color);
+}
+
+.form-group small {
+    font-size: 14px;
+    color: #666;
+    margin-top: 4px;
+    display: block;
+}
+
+
+/* ========================================
+   === STUDENT LIST STYLING ===
+   ======================================== */
+
+.students-grid {
+    display: grid;
+    gap: 16px;
+    margin-top: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.student-card {
+    background: white;
+    padding: 18px;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eee;
+}
+
+.student-card h3 {
+    margin: 0 0 10px 0;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-dark);
+    font-size: 20px;
+}
+
+.student-card p {
+    font-size: 16px;
+    color: #444;
+    margin: 6px 0;
+    line-height: 1.5;
+}
+
+.student-card em {
+    color: #888 !important;
+    font-style: italic;
 }
 
 /* ========================================

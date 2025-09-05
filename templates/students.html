@@ -1,0 +1,78 @@
+<!-- templates/students_list.html -->
+{% extends "layout.html" %}
+
+{% block title %}Students{% endblock %}
+
+{% block content %}
+<div class="form-container">
+  <h2>All Students</h2>
+
+    {% if students %}
+        <div class="students-grid">
+        {% for student in students %}
+            <div class="student-card">
+            <h3>{{ student.name or "Unnamed Student" }}</h3>
+
+            <p><strong>Date of Birth:</strong> 
+                {% if student.dob %}
+                {{ student.dob }}
+                {% else %}
+                <em>No date of birth provided</em>
+                {% endif %}
+            </p>
+
+            <p><strong>Location:</strong> 
+                {% if student.city and student.country %}
+                {{ student.city }}, {{ student.country }}
+                {% elif student.city %}
+                {{ student.city }}, <em>Unknown country</em>
+                {% elif student.country %}
+                <em>Unknown city</em>, {{ student.country }}
+                {% else %}
+                <em>No location provided</em>
+                {% endif %}
+            </p>
+
+            <p><strong>Skills:</strong> 
+                {% if student.skills %}
+                {{ student.skills|join(", ") }}
+                {% else %}
+                <em>No skills listed</em>
+                {% endif %}
+            </p>
+
+            <p><strong>Bio:</strong> 
+                {% if student.bio %}
+                "{{ student.bio }}"
+                {% else %}
+                <em>No bio provided</em>
+                {% endif %}
+            </p>
+            </div>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p><em>No students yet. <a href="/students">Add one!</a></em></p>
+    {% endif %}
+
+
+    <!-- Show success message -->
+    {% if request.query_params.get("message") %}
+    <div class="alert alert-success">
+        {{ request.query_params.get("message") }}
+    </div>
+    {% endif %}
+
+        <!-- New Student Button -->
+  <div style="text-align: center; margin-top: 20px;">
+    <button 
+        type="button" 
+        class="btn btn-primary" 
+        style="text-decoration: none; width: 100%;"
+        onclick="window.location.href='/students'"
+    >
+        Add New Student
+    </button>
+  </div>
+</div>
+{% endblock %}
