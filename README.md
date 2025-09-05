@@ -16,6 +16,8 @@ However, I quickly found myself drifting far beyond the original scope. Instead 
   - User-friendly HTML forms for web visitors.
   - RESTful JSON API endpoint for developers.
 
+![](demo/Demo_GIF.gif)
+
 ## 🚀 Live Pages
 
 | Page | Description |
